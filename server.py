@@ -4,7 +4,6 @@ import json
 import tempfile
 import subprocess
 import traceback
-import imghdr
 
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
