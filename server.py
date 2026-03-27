@@ -63,9 +63,10 @@ IMAGE_TYPES = [
 ]
 
 def is_image_bytes(data: bytes):
-    """Dùng imghdr để xác định ảnh ngay cả khi MIME sai."""
-    kind = imghdr.what(None, data)
-    return kind is not None
+    return data.startswith(b'\xff\xd8') or \
+           data.startswith(b'\x89PNG') or \
+           data.startswith(b'GIF') or \
+           data.startswith(b'RIFF')
 
 
 # =========================================
